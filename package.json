@@ -1,0 +1,88 @@
+{
+  "name": "bmqb-mq",
+  "version": "0.0.1",
+  "description": "BMQB queue",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "ava": "./node_modules/.bin/cross-env NODE_ENV=test node --harmony --harmony-proxies ./node_modules/.bin/ava --verbose",
+    "test": "./node_modules/.bin/nyc -a --reporter=text npm run ava",
+    "lint": "./node_modules/.bin/eslint src/",
+    "build": "babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmqb/bmqb-mq.git"
+  },
+  "keywords": [
+    "BMQB",
+    "Message",
+    "queue"
+  ],
+  "author": "HarveyZ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bmqb/bmqb-mq/issues"
+  },
+  "homepage": "https://github.com/bmqb/bmqb-mq#readme",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.11.4",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-plugin-transform-builtin-extend": "^1.1.0",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "babel-preset-stage-3": "^6.11.0",
+    "babel-register": "^6.11.6",
+    "chai": "^3.5.0",
+    "cross-env": "^2.0.1",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
+    "eslint-plugin-react": "^6.0.0",
+    "nyc": "^8.3.0"
+  },
+  "dependencies": {
+    "ali-mns": "^2.3.8",
+    "babel-polyfill": "^6.13.0",
+    "jsonpack": "^1.1.5",
+    "lodash": "^4.16.0"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "check-coverage": false
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/config.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "concurrency": 4,
+    "failFast": false,
+    "tap": false,
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "reporter": [
+      "lcov",
+      "text-lcov",
+      "html"
+    ],
+    "babel": "inherit"
+  }
+}
