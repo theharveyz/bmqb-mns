@@ -1,5 +1,4 @@
 import { Account, Topic } from 'ali-mns';
-import _ from 'lodash';
 import jsonpack from 'jsonpack';
 import MQMsg from '../../mq_msg';
 
@@ -36,8 +35,8 @@ export default class MNSAdapter {
     if (this.topicHandler) {
       return this.topicHandler;
     }
-    this.topicHandler = new Topic(this.config['topicName'],
-      this.getAccount(), this.config['region']);
+    this.topicHandler = new Topic(this.config.topicName,
+      this.getAccount(), this.config.region);
     return this.topicHandler;
   }
 
@@ -55,6 +54,5 @@ export default class MNSAdapter {
         return msg;
       });
     });
-
   }
 }

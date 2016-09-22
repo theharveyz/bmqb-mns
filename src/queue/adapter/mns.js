@@ -1,5 +1,4 @@
 import { Account, MQ } from 'ali-mns';
-import _ from 'lodash';
 import jsonpack from 'jsonpack';
 import MQMsg from '../../mq_msg';
 
@@ -9,7 +8,7 @@ export default class MNSAdapter {
     accessKey,
     secretKey,
     queueName,
-    region,
+    region = 'hangzhou',
   }) {
     if (!accessKey || !secretKey || !accountId) {
       throw new Error('invalid arguments');
@@ -23,7 +22,7 @@ export default class MNSAdapter {
       accessKey,
       secretKey,
       queueName,
-      region: region ? region : 'hangzhou',
+      region,
     };
   }
 
@@ -64,7 +63,7 @@ export default class MNSAdapter {
   }
 
   popMsg(callback) {
-    return this.getQueueHandler().notifyRecv(function(err, message){
+    return this.getQueueHandler().notifyRecv((err, message) => {
       if (err) {
         callback(err);
       } else {
@@ -80,9 +79,8 @@ export default class MNSAdapter {
             msg.setEnqueueTime(message.Message.EnqueueTime);
             msg.setNextVisibleTime(message.Message.NextVisibleTime);
             callback(null, msg);
-
-          } catch (err) {
-            callback(err);
+          } catch (error) {
+            callback(error);
           }
         }
       }

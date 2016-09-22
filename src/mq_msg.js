@@ -36,8 +36,7 @@ export default class MQMsg {
       throw new Error('Donot support this adapter!');
     }
     const priorityOptions = priorityMapping[adapter];
-    const prio = priority ? priority : 'normal';
-    if (!(prio in priorityOptions)) {
+    if (!(priority in priorityOptions)) {
       throw new Error('Donot support this priority!');
     }
     if (!isFinite(delay)) {
@@ -45,7 +44,7 @@ export default class MQMsg {
     }
     const msg = {
       adapter,
-      delay: 0 <= delay <= 604800 ? delay : 0,
+      delay: delay <= 604800 && delay >= 0 ? delay : 0,
       priority,
       content,
     };
@@ -55,7 +54,7 @@ export default class MQMsg {
 
   setId(id) {
     if (_.isEmpty(id)) {
-      throw new Error('Invalid id!')
+      throw new Error('Invalid id!');
     }
     this.data.id = id;
   }
@@ -66,9 +65,9 @@ export default class MQMsg {
 
   setEnqueueTime(time) {
     if (!isFinite(time)) {
-      throw new Error('Invalid enqueueTime!')
+      throw new Error('Invalid enqueueTime!');
     }
-    this.data.enqueueTime = parseInt(time);
+    this.data.enqueueTime = parseInt(time, 0);
   }
 
   getEnqueueTime() {
@@ -77,12 +76,12 @@ export default class MQMsg {
 
   setNextVisibleTime(time) {
     if (!isFinite(time)) {
-      throw new Error('Invalid nextVisibleTime!')
+      throw new Error('Invalid nextVisibleTime!');
     }
     this.data.nextVisibleTime = time;
   }
 
-  getNextVisibleTime(time) {
+  getNextVisibleTime() {
     return this.data.nextVisibleTime;
   }
 

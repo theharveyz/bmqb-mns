@@ -1,7 +1,7 @@
 import MNSAdapter from './adapter/mns';
 
 const adapters = {
-  'mns': MNSAdapter,
+  mns: MNSAdapter,
 };
 
 export default class Queue {
