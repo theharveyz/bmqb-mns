@@ -1,5 +1,6 @@
 # bmqb-mq
 基于mns的贝米钱包消息队列库
+[![CircleCI](https://circleci.com/gh/bmqb/bmqb-mq.svg?style=svg)](https://circleci.com/gh/bmqb/bmqb-mq)
 
 ## Installation
 ```SHELL
