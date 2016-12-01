@@ -1,7 +1,9 @@
 # bmqb-mq
-基于mns的贝米钱包消息队列库
+[![Build Status](https://travis-ci.org/bmqb/bmqb-mq.svg?branch=master)](https://travis-ci.org/bmqb/bmqb-mq)
+[![npm version](https://badge.fury.io/js/bmqb-mq.svg)](https://badge.fury.io/js/bmqb-mq)
+[![codecov](https://codecov.io/gh/bmqb/bmqb-mq/branch/master/graph/badge.svg)](https://codecov.io/gh/bmqb/bmqb-mq)
 
-[![CircleCI](https://circleci.com/gh/bmqb/bmqb-mq.svg?style=svg&circle-token=0d78968862144f366b4a4fe061fa06430ac4d48c)](https://circleci.com/gh/bmqb/bmqb-mq)
+基于mns的贝米钱包消息队列库
 
 ## Installation
 ```SHELL
