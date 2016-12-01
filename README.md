@@ -12,7 +12,7 @@ npm install bmqb-mq --save
 * producer: `MQProducer(adapter, config)`
 * msg: `MQMSG({adapter, content, delay, priority})`
 
-## Usage
+## Quick start
 * 创建producer
 ```JS
 const adapter = 'mns';
@@ -59,6 +59,9 @@ const queueConsumer = consumer.getQueueConsumer('queueName');
 queueConsumer.popMsg((err, message) => {
 	// message 将是一个MQMsg对象
 	// ...
+
+    // 设置消息下次可见时间
+    queueConsumer.setMsgVisibility(message, 10);
 
 	// 确认这个消息，使得消息不会再次可见
 	queueConsumer.deleteMsg(message);
