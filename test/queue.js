@@ -71,14 +71,11 @@ test('Queue:mnsAdapter:pushMsg|popMsg|deleteMsg:content:json', t => {
     queue.popMsg((err, message) => {
       console.log(message);
       (async () => {
-        try {
-          t.true(message instanceof MQMsg);
-          t.deepEqual(message.getMsgContent(), content, 'The content of message be equal json:content');
-          // deleteMsg
-          await queue.deleteMsg(message);
-        } catch (err) {
-          console.log(err);
-        }
+        t.true(message instanceof MQMsg);
+        t.deepEqual(message.getMsgContent(), content, 'The content of message be equal json:content');
+        await queue.setMsgVisibility(message, 10);
+        // deleteMsg
+        await queue.deleteMsg(message);
       })();
     });
   } catch (err) {

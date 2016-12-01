@@ -102,4 +102,25 @@ export default class MNSAdapter {
       return this.getQueueHandler().deleteP(rawMsg.ReceiptHandle);
     });
   }
+
+  /**
+   * 设置消息可见性
+   * @param {MQMsg} msg - 消息
+   * @param {number} seconds - 消息可见秒数
+   */
+  setMsgVisibility(msg, seconds = 1) {
+    return Promise.resolve().then(() => {
+      if (!msg || !(msg instanceof MQMsg)) {
+        throw new Error('msg must be a MQMsg Object!');
+      }
+      if (!(seconds >= 1 && seconds <= 43200)) {
+        throw new Error('msg visibility seconds must between 1 and 43200!');
+      }
+      const rawMsg = msg.getRawMsg();
+      if (!rawMsg.ReceiptHandle) {
+        throw new Error('The msg object have no attribute about ReceiptHandle');
+      }
+      return this.getQueueHandler().reserveP(rawMsg.ReceiptHandle, seconds);
+    });
+  }
 }
