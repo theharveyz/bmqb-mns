@@ -1,13 +1,13 @@
-# bmqb-mq
-[![Build Status](https://travis-ci.org/bmqb/bmqb-mq.svg?branch=master)](https://travis-ci.org/bmqb/bmqb-mq)
-[![npm version](https://badge.fury.io/js/bmqb-mq.svg)](https://badge.fury.io/js/bmqb-mq)
-[![codecov](https://codecov.io/gh/bmqb/bmqb-mq/branch/master/graph/badge.svg)](https://codecov.io/gh/bmqb/bmqb-mq)
+# bmqb-mns
+[![Build Status](https://travis-ci.org/bmqb/bmqb-mns.svg?branch=master)](https://travis-ci.org/bmqb/bmqb-mns)
+[![npm version](https://badge.fury.io/js/bmqb-mns.svg)](https://badge.fury.io/js/bmqb-mns)
+[![codecov](https://codecov.io/gh/bmqb/bmqb-mns/branch/master/graph/badge.svg)](https://codecov.io/gh/bmqb/bmqb-mns)
 
 基于mns的贝米钱包消息队列库
 
 ## Installation
 ```SHELL
-npm install bmqb-mq --save
+npm install bmqb-mns --save
 ```
 ## Roles
 * consumer: `MQConsumer(adapter, config)`

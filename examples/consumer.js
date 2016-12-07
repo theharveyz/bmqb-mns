@@ -1,4 +1,4 @@
-import { MQConsumer } from 'bmqb-mq';
+import { MQConsumer } from 'bmqb-mns';
 
 const adapter = 'mns';
 const mnsConfig = {

@@ -1,7 +1,7 @@
 {
-  "name": "bmqb-mq",
-  "version": "0.0.2",
-  "description": "BMQB queue",
+  "name": "bmqb-mns",
+  "version": "0.1.0",
+  "description": "BMQB aliyun mns",
   "main": "index.js",
   "scripts": {
     "prepublish": "npm run build",
@@ -12,19 +12,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bmqb/bmqb-mq.git"
+    "url": "git+https://github.com/bmqb/bmqb-mns.git"
   },
   "keywords": [
     "BMQB",
     "Message",
-    "queue"
+    "queue",
+    "aliyun MNS"
   ],
-  "author": "HarveyZ",
+  "author": "BMQB",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bmqb/bmqb-mq/issues"
+    "url": "https://github.com/bmqb/bmqb-mns/issues"
   },
-  "homepage": "https://github.com/bmqb/bmqb-mq#readme",
+  "homepage": "https://github.com/bmqb/bmqb-mns#readme",
   "devDependencies": {
     "ava": "^0.16.0",
     "babel": "^6.5.2",

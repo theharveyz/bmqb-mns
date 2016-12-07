@@ -1,4 +1,4 @@
-import { MQProducer } from 'bmqb-mq';
+import { MQProducer } from 'bmqb-mns';
 
 const adapter = 'mns';
 const mnsConfig = {
